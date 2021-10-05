@@ -27,6 +27,11 @@ app.get("/json", (req, res) => {
     } 
     res.json(jsonresponse);
 });
+//root middleware function that runs during all paths and returns information about method requested, path and ip 
+app.use(function(req, res, next){
+    console.log(req.method +" "+ req.path + " - " + req.ip)
+    next();
+  })
 
 
 
